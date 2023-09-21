@@ -7,6 +7,28 @@ router.post("/register", async (req, res) => {
   try {
     // Assuming the user's booking data is sent in the request body
     const userData = req.body;
+    // hashedPhoneNumber: {
+    //   type: String,
+    //   required: true,
+    // },
+    // hashedID: {
+    //   type: String,
+    //   required: true,
+    // },
+    // idFirst5Characters: {
+    //   type: String,
+    //   required: true,
+    // },
+    // randomSalt: {
+    //   type: String,
+    //   required: true,
+    // },
+    // You can include additional fields such as appointment time, status, etc.
+
+    userData.hashedPhoneNumber = "adsad";
+    userData.hashedID = "asdas";
+    userData.idFirst5Characters = "12345";
+    userData.randomSalt = "asdas";
 
     // Here, you should validate userData, sanitize inputs, and perform any necessary checks.
 

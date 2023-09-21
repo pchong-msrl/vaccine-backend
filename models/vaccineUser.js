@@ -17,7 +17,16 @@ const vaccineUserSchema = new mongoose.Schema({
   placeOfBirth: String,
   vaccineBrand: {
     type: String,
-    enum: ["Pfizer", "Moderna", "AstraZeneca", "Johnson & Johnson"],
+    enum: [
+      "pfizer",
+      "moderna",
+      "astraZeneca",
+      "johnson & johnson",
+      "Pfizer",
+      "Moderna",
+      "AstraZeneca",
+      "Johnson & johnson",
+    ],
     required: true,
   },
   phoneNumber: {

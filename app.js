@@ -17,7 +17,7 @@ mongoose.connect(
 );
 
 // Enable CORS
-app.use(cors());
+app.use(cors({ credentials: true }));
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
@@ -61,4 +61,4 @@ const bruteforce = new ExpressBrute(store, {
 });
 
 // Apply the brute force middleware to specific routes or all routes as needed
-app.post("/vaccineusers/register", bruteforce.prevent); // Apply brute force protection to the create vaccine user endpoint
+app.post("/vaccineusers/register"); // Apply brute force protection to the create vaccine user endpoint
