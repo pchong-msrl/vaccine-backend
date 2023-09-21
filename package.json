@@ -1,0 +1,21 @@
+{
+  "name": "vaccine-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-brute": "^1.0.1",
+    "express-brute-mongoose": "^1.1.0",
+    "express-brute-redis": "^0.0.1",
+    "express-rate-limit": "^7.0.1",
+    "mongoose": "^7.5.2"
+  }
+}
