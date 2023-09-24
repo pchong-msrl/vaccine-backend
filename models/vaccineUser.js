@@ -9,6 +9,11 @@ const vaccineUserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  gender: {
+    type: String,
+    enum: ["Male", "Female", "male", "female"],
+    required: true,
+  },
   dateOfBirth: {
     type: Date,
     required: true,
@@ -33,22 +38,22 @@ const vaccineUserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // hashedPhoneNumber: {
-  //   type: String,
-  //   required: true,
-  // },
-  // hashedID: {
-  //   type: String,
-  //   required: true,
-  // },
-  // idFirst5Characters: {
-  //   type: String,
-  //   required: true,
-  // },
-  // randomSalt: {
-  //   type: String,
-  //   required: true,
-  // },
+  hashedPhoneNumber: {
+    type: String,
+    required: true,
+  },
+  hashedID: {
+    type: String,
+    required: true,
+  },
+  idFirst5Characters: {
+    type: String,
+    required: true,
+  },
+  randomSalt: {
+    type: String,
+    required: true,
+  },
   // You can include additional fields such as appointment time, status, etc.
 });
 

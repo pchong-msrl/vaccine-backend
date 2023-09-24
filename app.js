@@ -23,22 +23,22 @@ app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
-const userSchema = new mongoose.Schema({
-  username: String,
-  email: String,
-});
+// const userSchema = new mongoose.Schema({
+//   username: String,
+//   email: String,
+// });
 
-const User = mongoose.model("User", userSchema);
+// const User = mongoose.model("User", userSchema);
 
-app.get("/users", async (req, res) => {
-  try {
-    const users = await User.find();
-    res.json(users);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal Server Error" });
-  }
-});
+// app.get("/users", async (req, res) => {
+//   try {
+//     const users = await User.find();
+//     res.json(users);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: "Internal Server Error" });
+//   }
+// });
 
 // Use middleware to parse JSON requests
 app.use(express.json());
@@ -50,15 +50,15 @@ const vaccineUserRoutes = require("./routes/vaccineUsers");
 app.use("/timeslots", timeSlotRoutes);
 app.use("/vaccineusers", vaccineUserRoutes);
 
-// Define a mongoose model for storing brute force prevention data
-const BruteForceModel = mongoose.model("bruteforce", new mongoose.Schema({}));
+// // Define a mongoose model for storing brute force prevention data
+// const BruteForceModel = mongoose.model("bruteforce", new mongoose.Schema({}));
 
-const store = new MongooseStore(BruteForceModel);
+// const store = new MongooseStore(BruteForceModel);
 
-const bruteforce = new ExpressBrute(store, {
-  freeRetries: 2, // Number of allowed retries before lockout
-  lifetime: 60 * 60, // Lockout time (1 hour in seconds) after exceeding retries
-});
+// const bruteforce = new ExpressBrute(store, {
+//   freeRetries: 2, // Number of allowed retries before lockout
+//   lifetime: 60 * 60, // Lockout time (1 hour in seconds) after exceeding retries
+// });
 
-// Apply the brute force middleware to specific routes or all routes as needed
-app.post("/vaccineusers/register"); // Apply brute force protection to the create vaccine user endpoint
+// // Apply the brute force middleware to specific routes or all routes as needed
+// app.post("/vaccineusers/register"); // Apply brute force protection to the create vaccine user endpoint
