@@ -4,10 +4,18 @@ const vaccineUserSchema = new mongoose.Schema({
   englishName: {
     type: String,
     required: true,
+    validate: {
+      validator: (name) => /^[a-zA-Z ]+$/.test(name),
+      message: "English name must contain only letters and spaces",
+    },
   },
   chineseName: {
     type: String,
     required: true,
+    validate: {
+      validator: (name) => /^[\u4e00-\u9fff]+$/.test(name),
+      message: "Chinese name must contain only Chinese characters",
+    },
   },
   gender: {
     type: String,
@@ -37,6 +45,10 @@ const vaccineUserSchema = new mongoose.Schema({
   phoneNumber: {
     type: String,
     required: true,
+    validate: {
+      validator: (phone) => /^\d{8}$/.test(phone),
+      message: "Phone number must be 8 digits",
+    },
   },
   hashedPhoneNumber: {
     type: String,

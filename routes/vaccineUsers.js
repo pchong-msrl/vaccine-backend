@@ -38,10 +38,13 @@ router.post("/register", async (req, res) => {
 
     // Update the corresponding time slot to mark it as booked (you need to implement this logic)
 
-    res.status(201).json({ message: "Vaccine User register successful" });
+    res.status(201).json({
+      message: "Vaccine User register successful",
+      _id: newBooking._id,
+    });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: error._message });
   }
 });
 
